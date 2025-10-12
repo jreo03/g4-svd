@@ -1,5 +1,8 @@
+<img width="1152" height="648" alt="Simulacra Vehicle Dynamics (DEBUG) 13_10_2025 3_14_59 am" src="https://github.com/user-attachments/assets/77655791-53e0-43ec-b61c-1af0f84952a7" />
 <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/bcea596d-2d8e-46aa-987a-563785d35c8e" />
-<sub><sub>https://www.curbsideclassic.com/blog/cc-outtake/cc-outtake-former-1987-1991-honda-crx-x-marks-the-spot/
+
+<sup><sub>https://www.curbsideclassic.com/blog/cc-outtake/cc-outtake-former-1987-1991-honda-crx-x-marks-the-spot/
+
 
 vitavehicle alternative that's simpler to work with
 this is a godot 4 conversion, so meshes are   yes
