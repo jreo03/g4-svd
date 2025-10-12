@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnd0ly5rx2p5u"]
+
+[ext_resource type="PackedScene" path="res://MAIN/car.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ASSETS/maps/RCP Proving Grounds/scene.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://ASSETS/tachometre/tacho.tscn" id="3"]
+[ext_resource type="Script" uid="uid://hq7suqk8x821" path="res://ASSETS/cam.gd" id="4"]
+[ext_resource type="PackedScene" path="res://ASSETS/visual gravity system/vgs.tscn" id="5"]
+[ext_resource type="Environment" uid="uid://sm7u0llmyb28" path="res://default_env.tres" id="8_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://r44lxawulfen" path="res://ASSETS/sw.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://08fgk7aramgd" path="res://ASSETS/sw_desired.png" id="11"]
+
+[sub_resource type="Curve" id="1"]
+_data = [Vector2(0, 0.669318), 0.0, 1.50799, 0, 0, Vector2(0.382353, 1), 0.0, 0.0, 0, 0, Vector2(0.596639, 0.960227), 0.369401, 0.369401, 0, 0, Vector2(0.928571, 0.923864), 0.0, 0.0, 0, 0, Vector2(1, 0.860227), -0.141107, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="2"]
+_data = [Vector2(0, 0.1875), 0.0, 0.8125, 0, 1, Vector2(1, 1), 0.8125, 0.0, 1, 0]
+point_count = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" parent="." instance=ExtResource("5")]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -73.0
+offset_right = 147.0
+offset_bottom = 55.0
+grow_vertical = 2
+
+[node name="tacho" parent="." instance=ExtResource("3")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -216.0
+offset_right = -5.0
+offset_bottom = 39.9996
+grow_horizontal = 0
+grow_vertical = 0
+car = NodePath("../car")
+monitoring = NodePath("../car")
+
+[node name="cam" type="Marker3D" parent="."]
+transform = Transform3D(-0.0200186, 0.00178223, 0.999798, 0, 0.999998, -0.00178259, -0.9998, -3.56849e-05, -0.0200186, 4.34901, 1.04656, 0.129893)
+script = ExtResource("4")
+car = NodePath("../car")
+enabled = true
+
+[node name="duck" type="Marker3D" parent="cam"]
+
+[node name="Camera3D" type="Camera3D" parent="cam/duck"]
+transform = Transform3D(1, 3.37604e-09, -4.09782e-08, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 1.6, 0)
+current = true
+far = 10000.0
+
+[node name="car" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0288255, 0.735798, -0.0725873)
+EN_Torque_Curve = SubResource("1")
+EN_Decline_Curve = SubResource("2")
+
+[node name="Camera3D" type="Camera3D" parent="car"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.513, 0.561)
+fov = 80.0
+far = 10000.0
+
+[node name="sw" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -162.0
+offset_right = 64.0
+offset_bottom = -34.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("10")
+expand_mode = 1
+
+[node name="sw_desired" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -162.0
+offset_right = 64.0
+offset_bottom = -34.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("11")
+expand_mode = 1
+
+[node name="Camera2" type="Camera3D" parent="."]
+transform = Transform3D(-0.603246, 0.0611585, -0.795208, 0, 0.997055, 0.0766823, 0.797556, 0.0462583, -0.601469, -3.97549, 0.509821, -2.88997)
+far = 10000.0
+
+[node name="rcp proving grounds" parent="." instance=ExtResource("2")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("8_gbfbk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 6, 0)

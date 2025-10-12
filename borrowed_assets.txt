@@ -1,0 +1,14 @@
+============Racer.nl============
+\labs\tyre_curving\pacejka graph.jpg
+
+============Need For Speed Underground 1 © 2003-present Electronic Arts============
+\ASSETS\engine0off.ogg
+\ASSETS\engine0on.ogg
+
+============Live for Speed © 2002-present Scawen Roberts, Eric Bailey, Victor van Vlaardingen============
+\ASSETS\LFS_road_noise.wav
+\ASSETS\LFS_skid.wav
+\ASSETS\LFS_tyre_rub.wav
+\ASSETS\LFS_tyre_scrub.wav
+\ASSETS\LFS_tyre_skid.wav
+\ASSETS\LFS_wind.wav
