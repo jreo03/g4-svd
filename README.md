@@ -1,4 +1,4 @@
-<img width="1282" height="504" alt="image" src="https://github.com/user-attachments/assets/dee49fc1-b79a-4b91-a9a1-21a50ba3e2dc" />
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/bcea596d-2d8e-46aa-987a-563785d35c8e" />
 <sub><sub>https://www.curbsideclassic.com/blog/cc-outtake/cc-outtake-former-1987-1991-honda-crx-x-marks-the-spot/
 
 vitavehicle alternative that's simpler to work with
