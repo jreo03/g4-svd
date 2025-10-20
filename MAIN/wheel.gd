@@ -28,7 +28,7 @@ func xtr_mdl(val: SVD_TMODEL):
 	TR_MDL_friction = val.TR_MDL_friction
 
 @export var TR_stiffness: float = 40
-@export var TR_deform_factor: float = 120
+@export var TR_deform_factor: float = 4
 @export var TR_deform_threshold: float = 1
 @export var TR_spin_resistence_rate: float = 20
 @export var TR_friction_multiplier: float = 1
