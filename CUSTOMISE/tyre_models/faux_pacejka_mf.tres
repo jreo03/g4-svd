@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://MAIN/resources/svd_tmodel.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+model_name = "Faux-Pacejka MF"
+TR_MDL_peak_y = 1.0
+TR_MDL_peak_x = 0.936
+TR_MDL_aspect_ratio = 0.202
+TR_MDL_shape_x = 1.0
+TR_MDL_shape_y = 1.0
+TR_MDL_linear = 0.0
+TR_MDL_friction = 1.0

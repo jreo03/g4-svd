@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://c68r6mwh5ba8x"]
+
+[ext_resource type="Texture2D" uid="uid://bh8f4di8c8t2p" path="res://ASSETS/force.png" id="1"]
+[ext_resource type="Script" uid="uid://xs40xuxcbjie" path="res://MAIN/wheel.gd" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="4"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.478431, 1, 0.478431, 1)
+
+[sub_resource type="BoxMesh" id="5"]
+material = SubResource("4")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="10"]
+no_depth_test = true
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="7"]
+material = SubResource("10")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="axle" type="RayCast3D"]
+script = ExtResource("2")
+WL_size = 0.579
+
+[node name="c_v" type="Marker3D" parent="."]
+visible = false
+
+[node name="patch_pos" type="MeshInstance3D" parent="c_v"]
+mesh = SubResource("5")
+
+[node name="lateral" type="Sprite3D" parent="c_v"]
+transform = Transform3D(-4.37114e-09, 1, -4.37114e-08, 0, -4.37114e-08, -1, -0.1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+offset = Vector2(0, -64)
+transparent = false
+alpha_cut = 1
+texture = ExtResource("1")
+
+[node name="longitudinal" type="Sprite3D" parent="c_v"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+offset = Vector2(0, -64)
+transparent = false
+alpha_cut = 1
+texture = ExtResource("1")
+
+[node name="suspforce" type="Sprite3D" parent="c_v"]
+transform = Transform3D(0.1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+offset = Vector2(0, -64)
+modulate = Color(1, 0.752941, 0.258824, 1)
+transparent = false
+alpha_cut = 1
+texture = ExtResource("1")
+
+[node name="imp_point" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("7")
+skeleton = NodePath("../c_v")
+
+[node name="hub" type="Marker3D" parent="."]
+
+[node name="spin" type="Marker3D" parent="hub"]
+
+[node name="fixed" type="Marker3D" parent="hub"]
