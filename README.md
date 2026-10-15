@@ -13,3 +13,5 @@ currently in testing phase, coherent documentation will come soon
 please replace/delete assets referred in borrowed_assets.txt when publishing your game using this project
 
 feel free to submit any issues
+
+## note: this version is less up-to-date with the godot 3 version
