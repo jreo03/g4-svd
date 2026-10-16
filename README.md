@@ -6,7 +6,9 @@
 
 
 vitavehicle alternative that's simpler to work with
+
 this is a godot 4 conversion, so meshes are   yes
+
 coherent documentation will come soon
 
 please replace/delete assets referred in borrowed_assets.txt when publishing your game using this project
