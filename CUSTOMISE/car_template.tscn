@@ -1,27 +1,15 @@
-[gd_scene load_steps=35 format=4 uid="uid://bdb1chtyung7f"]
+[gd_scene format=4 uid="uid://bdb1chtyung7f"]
 
 [ext_resource type="Resource" path="res://CUSTOMISE/control_schemes/default_controls.res" id="1"]
-[ext_resource type="AudioStream" uid="uid://couwgcmpj1sjq" path="res://ASSETS/engine0off.ogg" id="2"]
 [ext_resource type="PackedScene" uid="uid://c68r6mwh5ba8x" path="res://MAIN/wheel.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://CUSTOMISE/addons/torque_curve.tscn" id="3_3377v"]
 [ext_resource type="Script" uid="uid://cam126qxyqv71" path="res://MAIN/car.gd" id="4"]
-[ext_resource type="Resource" path="res://CUSTOMISE/tyre_models/faux_pacejka_mf.tres" id="5"]
-[ext_resource type="AudioStream" uid="uid://ckif2jepkkddf" path="res://ASSETS/engine0on.ogg" id="6"]
-[ext_resource type="AudioStream" uid="uid://b1yc7djroh6lt" path="res://ASSETS/LFS_road_noise.wav" id="7"]
-[ext_resource type="AudioStream" uid="uid://c208u8ioe36px" path="res://ASSETS/scraping.ogg" id="8"]
-[ext_resource type="AudioStream" uid="uid://2i3mpj1tkjak" path="res://ASSETS/LFS_tyre_rub.wav" id="9"]
-[ext_resource type="AudioStream" uid="uid://csa6okqbdoeal" path="res://ASSETS/LFS_tyre_skid.wav" id="10"]
-[ext_resource type="Script" uid="uid://bhkibkbgixmk0" path="res://ASSETS/road_noises.gd" id="11"]
+[ext_resource type="Resource" uid="uid://ydfts8my1yia" path="res://CUSTOMISE/tyre_models/faux_pacejka_mf.tres" id="5"]
+[ext_resource type="PackedScene" uid="uid://b3a0ri3skcvop" path="res://ASSETS/tyre_noises/road_noises.tscn" id="6_k4gyg"]
+[ext_resource type="PackedScene" path="res://ASSETS/debug_engine_sound/debug_engine_sound.tscn" id="9_tjxki"]
 
 [sub_resource type="PhysicsMaterial" id="33"]
 friction = 0.0
-
-[sub_resource type="Curve" id="31"]
-_data = [Vector2(0, 0.571591), 0.0, 1.98636, 0, 0, Vector2(0.402256, 1), 0.0, 0.0, 0, 0, Vector2(0.552632, 0.907955), 0.0, 0.0, 0, 0, Vector2(1, 0.798864), -1.20909, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="32"]
-_data = [Vector2(0, 0.332955), 0.0, 0.667045, 0, 1, Vector2(1, 1), 0.667045, 0.0, 1, 0]
-point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="13"]
 albedo_color = Color(0.7, 0, 0, 1)
@@ -287,10 +275,13 @@ _surfaces = [{
 "vertex_data": PackedByteArray("4Dq+PYzTJz/1qgw+SmRCPk78Jz/0W40+SmRCPozTJz/1qgw+4Dq+PSIH2j7m/KU+SmRCPnpI6D6UzTg+SmRCPiIH2j7m/KU+SmRCPogO8T4AAACAyLxfPnpI6D6UzTg+SmRCPnpI6D6UzTg+4Dq+PXpI6D6UzTg+SmRCPogO8T4AAACA4Dq+PRlAPT9raA+9SmRCPhlAPT+1Cg89SmRCPhlAPT9raA+94Dq+PYzTJz+TLw2+SmRCPozTJz+TLw2+4Dq+PRdNED/O0NY+SmRCPqph5z5D+O8+SmRCPhdNED/O0NY+4Dq+PXpI6D6UzTi+SmRCPiIH2j7m/KW+SmRCPnpI6D6UzTi+4Dq+Paph5z5D+O++SmRCPhdNED8M2te+SmRCPqph5z5D+O++4Dq+PU78Jz/0W40+4Dq+PSIH2j7m/KW+4Dq+PRlAPT+1Cg894Dq+Paph5z5D+O8+4Dq+PRdNED8M2te+SmRCPk78Jz+U4I2+4Dq+PYgO8T4AAACA4Dq+PU78Jz+U4I2+SmRCPiIH2j7m/KU+SmRCPhdNED/O0NY+SmRCPqph5z5D+O8+SmRCPhdNED8M2te+SmRCPiIH2j7m/KW+SmRCPqph5z5D+O++SmRCPhdNED/O0NY+SmRCPozTJz/1qgw+SmRCPk78Jz/0W40+SmRCPozTJz+TLw2+SmRCPhdNED8M2te+SmRCPk78Jz+U4I2+yLxfPnpI6D6UzTg+yLxfPogO8T4AAACAyLxfPozTJz/1qgw+SmRCPiIH2j7m/KU+yLxfPhdNED/O0NY+SmRCPhdNED/O0NY+SmRCPozTJz/1qgw+yLxfPhlAPT+1Cg89SmRCPhlAPT+1Cg89SmRCPhdNED8M2te+yLxfPiIH2j7m/KW+SmRCPiIH2j7m/KW+yLxfPnpI6D6UzTi+SmRCPnpI6D6UzTi+yLxfPogO8T4AAACASmRCPhlAPT9raA+9yLxfPozTJz+TLw2+SmRCPozTJz+TLw2+yLxfPozTJz/1qgw+yLxfPhlAPT9raA+9yLxfPhdNED8M2te+yLxfPiIH2j7m/KU+yLxfPnpI6D6UzTi+yLxfPiIH2j7m/KW+yLxfPhdNED8M2te+yLxfPozTJz+TLw2+yLxfPhlAPT9raA+9yLxfPhlAPT+1Cg89yLxfPhdNED/O0NY+yLxfPiIH2j7m/KU+AACIXgAAEGMAAIhezwABgBwQAYDPAAGAAAABgBwQAYAcEAGAHBABgAAAAYCPIf9/AABbXo8h/39iIf9/YiH/fwAA6ToAAIzTAADpOgAAHpAAANGAAAAekAFTAYB4Rf9/AVMBgAAAEGMAANGAAABbXgAAjNN4Rf9/zBz/fwAAAYDMHP9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAAAAATpQAASSAAAEkgAADIUgAAW14AAFteCmD/f7IkAYCyJAGAAAAekAAAHpAAAAGAjyH/fxYt/38WLf9/AADIUo8h/38KYP9/AAATpf9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA")
 }]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jpyye"]
+radius = 0.306
+
 [sub_resource type="ConvexPolygonShape3D" id="6"]
 points = PackedVector3Array(0.835, 0.744, 1.778, 0.835, 0, 1.778, 0.835, 0.744, -1.966, -0.835, 0.744, 1.778, -0.835, 0, 1.778, 0.835, 0, -1.966, -0.835, 0.744, -1.966, -0.835, 0, -1.966)
 
-[node name="car" type="RigidBody3D"]
+[node name="car" type="RigidBody3D" unique_id=1576845575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mass = 1000.0
 physics_material_override = SubResource("33")
@@ -299,186 +290,221 @@ custom_integrator = true
 script = ExtResource("4")
 Controls = ExtResource("1")
 EN_DriveForceBehavior = 1
-EN_Torque_Curve = SubResource("31")
-EN_Decline_Curve = SubResource("32")
 SR_pivot_point = 0.0
 SR_pivot_node = NodePath("rl")
 SR_wheels = [NodePath("fl"), NodePath("fr")]
 
-[node name="placeholder" type="MeshInstance3D" parent="."]
+[node name="torque_curve" parent="." unique_id=783671026 instance=ExtResource("3_3377v")]
+Max_RevDownSpeed = 50.0
+
+[node name="placeholder" type="MeshInstance3D" parent="." unique_id=823963946]
 transform = Transform3D(0.306, 0, 0, 0, 0.306, 0, 0, 0, 0.306, 0, -0.316402, 0)
 mesh = SubResource("21")
 
-[node name="fl" parent="." instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725, -0.0425687, 1.151)
+[node name="fl" parent="." unique_id=770640874 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725, -0.3, 1.151)
+SUS_shapecast_node = NodePath("ShapeCast3D")
+SUS_shapecast_compression_mode = 1
+SUS_shapecast_hq_detection = true
 SUS_spring_stiffness = 42.0
 SUS_dampening = 4.1
-SUS_rest_length = 0.28
+SUS_compression_length = 0.48
+SUS_rest_height = 0.07
+SUS_max_compression_length = 0.13
 SUS_tyre_stiffness = 120.0
 SUS_tyre_damp = 4.0
 SUS_tyre_height = 0.087
-TR_Tire_Model = ExtResource("5")
+SR_Contact_Patch_Conditioning = true
+SR_Steering_Pivot_Offset = Vector3(-0.1, 0, 0)
+SR_Steering_Caster_Angles = Vector3(-5, 0, 0)
+TR_Model = ExtResource("5")
+TR_vertical_softness = true
+TR_elasticity_physics = true
+TR_elasticity = 1000.0
+TR_dampening = 5.0
 Signals_ABS = true
 Signals_ABS_Sensitivity = 0.4
-DT_BrakeTorque = 30.0
 DT_BrakeBias = 0.8
-curb_step_behaviour = 0
 AN_spinning_meshes = [NodePath("placeholder_wheel"), NodePath("placeholder_rotor")]
 AN_fixed_meshes = [NodePath("placeholder_caliper")]
+AR_swaybar_link = NodePath("../fr")
+AR_swaybar_stiffness = 9.0
+AR_swaybar_dampening = 0.4
 DIFF_lock_to = NodePath("../fr")
-DIFF_Locking_Preload = 10.0
+DIFF_Locking_Preload = 20.0
 DIFF_Locking_Power = 0.2
-DIFF_Locking_Coast = 0.2
+DIFF_Locking_Coast = 0.1
 DIFF_Viscousity = 0.0
 
-[node name="placeholder_wheel" type="MeshInstance3D" parent="fl"]
+[node name="placeholder_wheel" type="MeshInstance3D" parent="fl" unique_id=1166565910]
 transform = Transform3D(0.092, 0, 0, 0, 0.292, 0, 0, 0, 0.292, 0, 0, 0)
 mesh = SubResource("25")
 
-[node name="placeholder_rotor" type="MeshInstance3D" parent="fl"]
+[node name="placeholder_rotor" type="MeshInstance3D" parent="fl" unique_id=1631607842]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.058, 0, 0)
 mesh = SubResource("28")
 
-[node name="placeholder_caliper" type="MeshInstance3D" parent="fl"]
+[node name="placeholder_caliper" type="MeshInstance3D" parent="fl" unique_id=1631104381]
 transform = Transform3D(0.244, 0, 0, 0, 0.172534, -0.172534, 0, 0.172534, 0.172534, -0.053012, -1.19209e-07, 0)
 mesh = SubResource("30")
 
-[node name="fr" parent="." instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.725, -0.0429997, 1.151)
+[node name="ShapeCast3D" type="ShapeCast3D" parent="fl" unique_id=1075098059]
+process_physics_priority = -1
+shape = SubResource("SphereShape3D_jpyye")
+target_position = Vector3(0, 0, 0)
+
+[node name="fr" parent="." unique_id=158453620 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.725, -0.3, 1.151)
+SUS_shapecast_node = NodePath("ShapeCast3D")
+SUS_shapecast_compression_mode = 1
+SUS_shapecast_hq_detection = true
 SUS_spring_stiffness = 42.0
 SUS_dampening = 4.1
-SUS_rest_length = 0.28
+SUS_compression_length = 0.48
+SUS_rest_height = 0.07
+SUS_max_compression_length = 0.13
 SUS_tyre_stiffness = 120.0
 SUS_tyre_damp = 4.0
 SUS_tyre_height = 0.087
-TR_Tire_Model = ExtResource("5")
+SR_Contact_Patch_Conditioning = true
+SR_Steering_Pivot_Offset = Vector3(0.1, 0, 0)
+SR_Steering_Caster_Angles = Vector3(-5, 0, 0)
+TR_Model = ExtResource("5")
+TR_vertical_softness = true
+TR_elasticity_physics = true
+TR_elasticity = 1000.0
+TR_dampening = 5.0
 Signals_ABS = true
 Signals_ABS_Sensitivity = 0.4
-DT_BrakeTorque = 30.0
 DT_BrakeBias = 0.8
-curb_step_behaviour = 0
 AN_spinning_meshes = [NodePath("placeholder_wheel"), NodePath("placeholder_rotor")]
 AN_fixed_meshes = [NodePath("placeholder_caliper")]
+AR_swaybar_link = NodePath("../fl")
+AR_swaybar_stiffness = 9.0
+AR_swaybar_dampening = 0.4
 DIFF_lock_to = NodePath("../fl")
-DIFF_Locking_Preload = 10.0
+DIFF_Locking_Preload = 20.0
 DIFF_Locking_Power = 0.2
-DIFF_Locking_Coast = 0.2
+DIFF_Locking_Coast = 0.1
 DIFF_Viscousity = 0.0
 
-[node name="placeholder_wheel" type="MeshInstance3D" parent="fr"]
+[node name="placeholder_wheel" type="MeshInstance3D" parent="fr" unique_id=395474852]
 transform = Transform3D(-0.092, 0, 0, 0, 0.292, -2.55275e-08, 0, 2.55275e-08, 0.292, 0, 0, 0)
 mesh = SubResource("25")
 
-[node name="placeholder_rotor" type="MeshInstance3D" parent="fr"]
+[node name="placeholder_rotor" type="MeshInstance3D" parent="fr" unique_id=558118873]
 transform = Transform3D(-0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.058, 0, 0)
 mesh = SubResource("28")
 
-[node name="placeholder_caliper" type="MeshInstance3D" parent="fr"]
+[node name="placeholder_caliper" type="MeshInstance3D" parent="fr" unique_id=1465410923]
 transform = Transform3D(-0.244, 0, 0, 0, 0.172534, -0.172534, 0, 0.172534, 0.172534, 0.053, 0, 0)
 mesh = SubResource("30")
 
-[node name="rl" parent="." instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725, -0.0425687, -1.151)
-SUS_dampening = 4.0
-SUS_rest_length = 0.28
+[node name="ShapeCast3D" type="ShapeCast3D" parent="fr" unique_id=1507002569]
+process_physics_priority = -1
+shape = SubResource("SphereShape3D_jpyye")
+target_position = Vector3(0, 0, 0)
+
+[node name="rl" parent="." unique_id=1720491197 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725, -0.3, -1.151)
+SUS_shapecast_node = NodePath("ShapeCast3D")
+SUS_shapecast_compression_mode = 1
+SUS_shapecast_hq_detection = true
+SUS_dampening = 3.7
+SUS_compression_length = 0.48
+SUS_rest_height = 0.07
+SUS_max_compression_length = 0.13
 SUS_tyre_stiffness = 120.0
 SUS_tyre_damp = 4.0
 SUS_tyre_height = 0.087
-TR_Tire_Model = ExtResource("5")
+SR_Contact_Patch_Conditioning = true
+TR_Model = ExtResource("5")
+TR_vertical_softness = true
+TR_elasticity_physics = true
+TR_elasticity = 1000.0
+TR_dampening = 5.0
 Signals_ABS = true
 Signals_ABS_Sensitivity = 0.4
 DT_influence = 0.0
-DT_BrakeTorque = 30.0
-DT_HandbrakeBias = 1.0
 DT_BrakeBias = 0.2
-curb_step_behaviour = 0
+DT_HandbrakeBias = 1.0
 AN_spinning_meshes = [NodePath("placeholder_wheel"), NodePath("placeholder_rotor")]
 AN_fixed_meshes = [NodePath("placeholder_caliper")]
+AR_swaybar_link = NodePath("../rr")
+AR_swaybar_stiffness = 4.0
+AR_swaybar_dampening = 0.1
 DIFF_lock_to = NodePath("../rr")
 DIFF_Viscousity = 0.0
 
-[node name="placeholder_wheel" type="MeshInstance3D" parent="rl"]
+[node name="placeholder_wheel" type="MeshInstance3D" parent="rl" unique_id=1573147406]
 transform = Transform3D(0.092, 0, 0, 0, 0.292, 0, 0, 0, 0.292, 0, 0, 0)
 mesh = SubResource("25")
 
-[node name="placeholder_rotor" type="MeshInstance3D" parent="rl"]
+[node name="placeholder_rotor" type="MeshInstance3D" parent="rl" unique_id=133335862]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.058, 0, 0)
 mesh = SubResource("28")
 
-[node name="placeholder_caliper" type="MeshInstance3D" parent="rl"]
+[node name="placeholder_caliper" type="MeshInstance3D" parent="rl" unique_id=1201270059]
 transform = Transform3D(0.244, 0, 0, 0, 7.45058e-09, -0.244, 0, 0.244, 7.45058e-09, -0.053012, -1.19209e-07, 0)
 mesh = SubResource("30")
 
-[node name="rr" parent="." instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.725, -0.0429997, -1.151)
-SUS_dampening = 4.0
-SUS_rest_length = 0.28
+[node name="ShapeCast3D" type="ShapeCast3D" parent="rl" unique_id=1683714306]
+process_physics_priority = -1
+shape = SubResource("SphereShape3D_jpyye")
+target_position = Vector3(0, 0, 0)
+
+[node name="rr" parent="." unique_id=1440751921 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.725, -0.3, -1.151)
+SUS_shapecast_node = NodePath("ShapeCast3D")
+SUS_shapecast_compression_mode = 1
+SUS_shapecast_hq_detection = true
+SUS_dampening = 3.7
+SUS_compression_length = 0.48
+SUS_rest_height = 0.07
+SUS_max_compression_length = 0.13
 SUS_tyre_stiffness = 120.0
 SUS_tyre_damp = 4.0
 SUS_tyre_height = 0.087
-TR_Tire_Model = ExtResource("5")
+SR_Contact_Patch_Conditioning = true
+TR_Model = ExtResource("5")
+TR_vertical_softness = true
+TR_elasticity_physics = true
+TR_elasticity = 1000.0
+TR_dampening = 5.0
 Signals_ABS = true
 Signals_ABS_Sensitivity = 0.4
 DT_influence = 0.0
-DT_BrakeTorque = 30.0
-DT_HandbrakeBias = 1.0
 DT_BrakeBias = 0.2
-curb_step_behaviour = 0
+DT_HandbrakeBias = 1.0
 AN_spinning_meshes = [NodePath("placeholder_wheel"), NodePath("placeholder_rotor")]
 AN_fixed_meshes = [NodePath("placeholder_caliper")]
+AR_swaybar_link = NodePath("../rl")
+AR_swaybar_stiffness = 4.0
+AR_swaybar_dampening = 0.1
 DIFF_lock_to = NodePath("../rl")
 DIFF_Viscousity = 0.0
 
-[node name="placeholder_wheel" type="MeshInstance3D" parent="rr"]
+[node name="placeholder_wheel" type="MeshInstance3D" parent="rr" unique_id=2005491816]
 transform = Transform3D(-0.092, 0, 0, 0, 0.292, -2.55275e-08, 0, 2.55275e-08, 0.292, 0, 0, 0)
 mesh = SubResource("25")
 
-[node name="placeholder_rotor" type="MeshInstance3D" parent="rr"]
+[node name="placeholder_rotor" type="MeshInstance3D" parent="rr" unique_id=231492374]
 transform = Transform3D(-0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.058, 0, 0)
 mesh = SubResource("28")
 
-[node name="placeholder_caliper" type="MeshInstance3D" parent="rr"]
+[node name="placeholder_caliper" type="MeshInstance3D" parent="rr" unique_id=1919421092]
 transform = Transform3D(-0.244, 0, 0, 0, 7.45058e-09, -0.244, 0, 0.244, 7.45058e-09, 0.053, 0, 0)
 mesh = SubResource("30")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="ShapeCast3D" type="ShapeCast3D" parent="rr" unique_id=428643667]
+process_physics_priority = -1
+shape = SubResource("SphereShape3D_jpyye")
+target_position = Vector3(0, 0, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1494147914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0.1)
 shape = SubResource("6")
 
-[node name="enon" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6")
-max_db = 0.0
-autoplay = true
-attenuation_filter_db = 0.0
+[node name="debug_engine_sound" parent="." unique_id=1782391902 instance=ExtResource("9_tjxki")]
 
-[node name="DB_clutchslip" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("8")
-max_db = 0.0
-attenuation_filter_db = 0.0
-
-[node name="enoff" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2")
-max_db = 0.0
-autoplay = true
-attenuation_filter_db = 0.0
-
-[node name="road_noises" type="Node3D" parent="."]
-script = ExtResource("11")
-
-[node name="rolling" type="AudioStreamPlayer3D" parent="road_noises"]
-stream = ExtResource("7")
-max_db = 0.0
-autoplay = true
-attenuation_filter_db = 0.0
-
-[node name="rub" type="AudioStreamPlayer3D" parent="road_noises"]
-stream = ExtResource("9")
-max_db = 0.0
-autoplay = true
-attenuation_filter_db = 0.0
-
-[node name="skid" type="AudioStreamPlayer3D" parent="road_noises"]
-stream = ExtResource("10")
-max_db = 0.0
-autoplay = true
-attenuation_filter_db = 0.0
+[node name="road_noises" parent="." unique_id=1889294879 instance=ExtResource("6_k4gyg")]

@@ -18,6 +18,7 @@ class_name ControlSettings
 @export var KeyboardSteerSpeed: float = 0.025
 @export var KeyboardReturnSpeed: float = 0.05
 @export var KeyboardCompensateSpeed: float = 0.1
+@export var HandbrakeToggleSpeed: float = 2
 
 @export var SteerAmountDecay: float = 0.05
 @export var SteeringAssistance: float = 1.0

@@ -1,14 +1,13 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="SVD_TMODEL" format=3 uid="uid://ydfts8my1yia"]
 
-[ext_resource path="res://MAIN/resources/svd_tmodel.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://xr8dg7rswpcn" path="res://MAIN/resources/svd_tmodel.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 model_name = "Faux-Pacejka MF"
-TR_MDL_peak_y = 1.0
 TR_MDL_peak_x = 0.936
 TR_MDL_aspect_ratio = 0.202
-TR_MDL_shape_x = 1.0
-TR_MDL_shape_y = 1.0
 TR_MDL_linear = 0.0
-TR_MDL_friction = 1.0
+TR_MDL_curving = 0.239
+TR_MDL_curve_distance = 2.6310000000000002
+TR_MDL_friction = 0.9

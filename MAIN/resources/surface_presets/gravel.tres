@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://MAIN/resources/surface_properties.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Gravel"
+roll_resist = 0.001
+roll_resist_constant = 0.005
+max_roll_resist = inf
+friction = 0.86
+dampening = 2.0
+fake_bump_height = 0.02
+fake_bump_frequency = 10.0

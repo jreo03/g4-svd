@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://CUSTOMISE/addons/torque_curve.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.554545 ), 0.0, 3.33014, 0, 0, Vector2( 0.327083, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.552083, 0.927273 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.672727 ), -1.65111, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.163636 ), 0.0, 0.836364, 0, 1, Vector2( 1, 1 ), 0.836364, 0.0, 1, 0 ]
+
+[node name="torque_curve" type="Node"]
+script = ExtResource( 1 )
+Max_RevDownSpeed = 75.0
+Torque_Curve = SubResource( 1 )
+Decline_Curve = SubResource( 2 )
