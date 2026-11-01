@@ -634,7 +634,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		
 		count += wheel.DT_influence
 		drive_median += wheel.spin*wheel.DT_influence
-		central_median += wheel.spin
+		central_median += wheel.spin*wheel.DT_gear_mult
 		central_travel_median += wheel.MEASURE_travelled_awd
 		fastest_wheel = max(fastest_wheel,abs(wheel.spin))
 	
@@ -663,7 +663,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	pain = Vector3.ZERO
 	for wheel in wheels:
 		wheel = wheel as SVD_WHEEL # cast placeholder
-		
+		var multed_g_ratio: float = g_ratio*wheel.DT_gear_mult
+		var multedinv_g_ratio: float = g_ratio/wheel.DT_gear_mult
 		
 		var tdt0: float = torque_data[0]
 		var tdt1: float = torque_data[1]
@@ -671,14 +672,14 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		c_dsw /= (delta*(wheel.TR_spin_resistence_rate/60.0))
 		
 		ds_weight += wheel.DT_influence
-		rpm_speed += wheel.spin*wheel.DT_influence
-		var w_torque_est: float = (tdt1*wheel.DT_influence*g_ratio/rt_dsweight)/c_dsw
+		rpm_speed += wheel.spin*wheel.DT_influence*wheel.DT_gear_mult
+		var w_torque_est: float = (tdt1*wheel.DT_influence*multed_g_ratio/rt_dsweight)/c_dsw
 		
 		w_torque_est = min(w_torque_est, test_cgrip_rads*c_dsw)
 		
-		var w_overdrive: float = max(w_torque_est/(tdt1/(g_ratio/hz_scale)) -1.0,0)
+		var w_overdrive: float = max(w_torque_est/(tdt1/(multed_g_ratio/hz_scale)) -1.0,0)
 
-		var weighed_grip: float = (test_cgrip_rads*wheel.DT_influence*g_ratio/rt_dsweight)/c_dsw
+		var weighed_grip: float = (test_cgrip_rads*wheel.DT_influence*multed_g_ratio/rt_dsweight)/c_dsw
 
 		var c_grip_od: float = test_cgrip_rads/(1.0/(w_overdrive/wheel.TR_spin_resistence_rate +1))
 		var acceleration: float = clamp(tdt0, -c_grip_od,c_grip_od)
@@ -687,31 +688,31 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		if EN_DriveForceBehavior == 1:
 			var predicted_spin: float
 			if gear<0:
-				predicted_spin = drive_median +acceleration/g_ratio -wheel.MEASURE_aligning
-				dt_dist = ((cs_rads/g_ratio + predicted_spin)/test_cstab)
+				predicted_spin = drive_median +acceleration/multed_g_ratio -wheel.MEASURE_aligning
+				dt_dist = ((cs_rads/multed_g_ratio + predicted_spin)/test_cstab)
 			else:
-				predicted_spin = drive_median -acceleration/g_ratio -wheel.MEASURE_aligning
-				dt_dist = ((cs_rads/g_ratio - predicted_spin)/test_cstab)
+				predicted_spin = drive_median -acceleration/multed_g_ratio -wheel.MEASURE_aligning
+				dt_dist = ((cs_rads/multed_g_ratio - predicted_spin)/test_cstab)
 		else:
 			var predicted_spin: float
 		
 			if gear<0:
-				predicted_spin = wheel.spin +acceleration/g_ratio -wheel.MEASURE_aligning
-				dt_dist = ((cs_rads/g_ratio + predicted_spin)/test_cstab)
+				predicted_spin = wheel.spin +acceleration/multed_g_ratio -wheel.MEASURE_aligning
+				dt_dist = ((cs_rads/multed_g_ratio + predicted_spin)/test_cstab)
 			else:
-				predicted_spin = wheel.spin -acceleration/g_ratio -wheel.MEASURE_aligning
-				dt_dist = ((cs_rads/g_ratio - predicted_spin)/test_cstab)
+				predicted_spin = wheel.spin -acceleration/multed_g_ratio -wheel.MEASURE_aligning
+				dt_dist = ((cs_rads/multed_g_ratio - predicted_spin)/test_cstab)
 
 		if not EN_CanStall and rpm<=EN_IdleRPM:
 			dt_dist *= 0
 			
-		var align_t: float = clamp(dt_dist*min(g_ratio -1.0,rads2rpm) +acceleration,-c_grip_od,c_grip_od)
-		
+		var align_t: float = clamp(dt_dist*min(multed_g_ratio -1.0,rads2rpm) +acceleration,-c_grip_od,c_grip_od)
+
 		var od_red: float = max(abs(align_t/rads2rpm) -w_torque_est/rads2rpm,0)
 		
 		wheel.dt_overdrive = w_overdrive
 
-		var w_torque: float = (align_t*wheel.DT_influence*g_ratio/rt_dsweight)/c_dsw
+		var w_torque: float = (align_t*wheel.DT_influence*multed_g_ratio/rt_dsweight)/c_dsw
 		if gear<0:
 			wheel.dt_torque = -w_torque/(delta*(wheel.TR_spin_resistence_rate/60.0))
 		else:
@@ -771,10 +772,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 #		wheel.spin = 20
 		wheel.dt_braking = wheel.DT_BrakeTorque*min(wheel.DT_BrakeBias*analog_decelerate + wheel.DT_HandbrakeBias*analog_handbrake,1)*abs_thresholded
 
-		apply_impulse(wheel.impulse[1],wheel.impulse[0])
+		apply_impulse(wheel.impulse[1], wheel.impulse[0])
 		
 		OUTPUT_total_compressed += wheel.OUTPUT_compressed
-		MEASURE_driven_wheel_radius += wheel.WL_radius*wheel.DT_influence
+		MEASURE_driven_wheel_radius += wheel.WL_radius*wheel.DT_influence/wheel.DT_gear_mult
 		
 		wheels_position += wheel.AN_hub.global_position
 	

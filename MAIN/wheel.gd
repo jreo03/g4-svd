@@ -149,10 +149,11 @@ var SP_dampening: float
 var STATE_surface_checked: bool
 
 
-@export var DT_influence: float = 1
-@export var DT_BrakeTorque: float = 5000
-@export var DT_BrakeBias: float = 1
-@export var DT_HandbrakeBias: float = 0
+@export var DT_influence: float = 1.0
+@export var DT_gear_mult: float = 1.0
+@export var DT_BrakeTorque: float = 5000.0
+@export var DT_BrakeBias: float = 1.0
+@export var DT_HandbrakeBias: float = 0.0
 
 @export var AN_spinning_meshes: Array # (Array, NodePath)
 @export var AN_fixed_meshes: Array # (Array, NodePath)
@@ -908,4 +909,4 @@ func _physics_process(delta):
 		AN_spin.rotate_x(spin*delta)
 
 	MEASURE_travelled += spin
-	MEASURE_travelled_awd += spin
+	MEASURE_travelled_awd += spin*DT_gear_mult
